@@ -2,14 +2,16 @@
 
 namespace Library
 {
+
+
     public class Greeter
     {
+        private static Greeter instance = new Greeter();
+
         private Greeter()
         {
-            // Intentionally left blank
-        }
 
-        private static Greeter instance;
+        }
 
         public static Greeter Instance
         {

@@ -2,6 +2,7 @@ using System.IO;
 using Library;
 using NUnit.Framework;
 
+
 namespace LibraryTests
 {
     public class Tests
@@ -11,14 +12,15 @@ namespace LibraryTests
         /// en la consola, para "ver" lo que se escribe en la consola es necesario "redirigir" la salida en la consola
         ///  utilizando <see cref="System.Console.SetOut(TextWriter)"/> a un <see cref="StringWriter"/>.
         /// </summary>
+
         [Test]
         public void TestSayHiToTheWorld()
         {
             using (StringWriter sw = new StringWriter())
             {
                 System.Console.SetOut(sw);
-                string expected = "Hello World!\n";
-                Singleton<Greeter>.Instance.SayHiToTheWorld();
+                Greeter.Instance.SayHiToTheWorld();
+                string expected = "Hello World!\r\n";
                 Assert.That(sw.ToString(), Is.EqualTo(expected));
             }
         }
